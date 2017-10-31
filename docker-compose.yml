@@ -13,3 +13,4 @@ services:
         environment:
             - DOMAIN=gaku.gakusmemo.com
             - EMAIL=pro.gaku@gmail.com
+            - STAGE=test #test or product

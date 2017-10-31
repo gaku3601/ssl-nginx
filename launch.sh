@@ -3,8 +3,15 @@ if [ ! -e /etc/letsencrypt/live ]; then
   #nginxの起動
   nginx
 
-  #証明書発行処理(test版)
-  certbot certonly --webroot -w /var/www/letsencrypt -d ${DOMAIN} --agree-tos --non-interactive -m ${EMAIL} --test-cert
+  if [ ${STAGE} = "product" ]; then
+    #証明書発行処理(product版)
+    echo "product版"
+    certbot certonly --webroot -w /var/www/letsencrypt -d ${DOMAIN} --agree-tos --non-interactive -m ${EMAIL} --force-renewal
+  else
+    #証明書発行処理(test版)
+    echo "test版"
+    certbot certonly --webroot -w /var/www/letsencrypt -d ${DOMAIN} --agree-tos --non-interactive -m ${EMAIL} --test-cert
+  fi
 
   #nginx conf生成処理を記述する
   cp /init/default.ssl.conf /etc/nginx/conf.d/default.ssl.conf
