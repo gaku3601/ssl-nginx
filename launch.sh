@@ -14,7 +14,7 @@ if [ ! -e /etc/letsencrypt/live ]; then
   fi
 
   #nginx conf生成処理を記述する
-  cp /init/default.ssl.conf /etc/nginx/conf.d/default.ssl.conf
+  envsubst '$$DOMAIN' < /init/default.ssl.conf.template > /etc/nginx/conf.d/default.ssl.conf
   nginx -s stop
 fi
 #nginxの起動

@@ -11,7 +11,7 @@ RUN touch /var/log/cron.log
 
 RUN mkdir -p /var/www/letsencrypt
 ADD ./conf.d/default.conf /etc/nginx/conf.d/default.conf
-ADD ./conf.d/default.ssl.conf /init/default.ssl.conf
+ADD ./conf.d/default.ssl.conf.template /init/default.ssl.conf.template
 ADD ./launch.sh /init/launch.sh
 
 RUN touch /etc/supervisord.conf

@@ -1,7 +1,7 @@
 server {
     listen 443 ssl;
-    ssl_certificate     /etc/letsencrypt/live/gaku.gakusmemo.com/fullchain.pem; #変更する
-    ssl_certificate_key /etc/letsencrypt/live/gaku.gakusmemo.com/privkey.pem;   #変更する
+    ssl_certificate     /etc/letsencrypt/live/${DOMAIN}/fullchain.pem; #変更する
+    ssl_certificate_key /etc/letsencrypt/live/${DOMAIN}/privkey.pem;   #変更する
 
 
 #    location /wordpress/ {
