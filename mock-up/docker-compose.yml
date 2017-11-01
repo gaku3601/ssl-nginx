@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+    nginx:
+        image: gaku3601/ssl-nginx:1.1
+        ports:
+            - 80:80
+            - 443:443
+        #volumes:
+        #    - ./conf.d:/etc/nginx/conf.d
+        environment:
+            - DOMAIN=gaku.gakusmemo.com
+            - EMAIL=pro.gaku@gmail.com
+            - STAGE=product #test or product
