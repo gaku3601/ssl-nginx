@@ -1,4 +1,4 @@
-if [ ! -e /etc/letsencrypt/live ]; then
+if [ ! -e /etc/letsencrypt/live ] && [ ! ${STAGE} = "local" ]; then
   echo "証明書が存在しません。発行処理を行います。"
   #nginxの起動
   nginx
